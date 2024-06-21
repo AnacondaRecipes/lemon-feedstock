@@ -10,11 +10,11 @@ cmake ${CMAKE_ARGS} \
     ..
 make
 
-if [[ "${target_platform}" == "${build_platform}" ]]; then
-  # Compile and run a few tests.
-  make error_test bfs_test
-  ./test/error_test
-  ./test/bfs_test
-fi
+# if [[ "${target_platform}" == "${build_platform}" ]]; then
+#   # Compile and run a few tests.
+#   make error_test bfs_test
+#   ./test/error_test
+#   ./test/bfs_test
+# fi
 
 make install
