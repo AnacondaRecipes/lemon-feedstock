@@ -6,6 +6,7 @@ package:
   version: {{ version }}
 
 source:
+  # use official tarball
   url: http://lemon.cs.elte.hu/pub/sources/{{ name }}-{{ version }}.tar.gz 
   sha256: 71b7c725f4c0b4a8ccb92eb87b208701586cf7a96156ebd821ca3ed855bad3c8
   patches:
