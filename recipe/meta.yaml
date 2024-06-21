@@ -48,6 +48,8 @@ requirements:
     - cmake
     - ninja
     - make
+    - patch       # [not win]
+    - m2-patch    # [win]
   host:
     - glpk           # [not win]
     - coincbc        # [unix]
