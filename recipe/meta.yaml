@@ -6,9 +6,11 @@ package:
   version: {{ version }}
 
 source:
+  url: https://github.com/k-dominik/lemon/archive/{{ version }}.tar.gz 
+  sha256: e3d7a204a6fdbde8fe87dbc1aa3fd0ae58f908e9fbe8db8a6618db7cd44cdce6
   # use official tarball
-  url: https://lemon.cs.elte.hu/pub/sources/{{ name }}-{{ version }}.tar.gz 
-  sha256: 71b7c725f4c0b4a8ccb92eb87b208701586cf7a96156ebd821ca3ed855bad3c8
+  # url: https://lemon.cs.elte.hu/pub/sources/{{ name }}-{{ version }}.tar.gz 
+  # sha256: 71b7c725f4c0b4a8ccb92eb87b208701586cf7a96156ebd821ca3ed855bad3c8
   patches:
     # Note: switching to the conda compilers introduced a build error with
     # clang 4.0.2:
