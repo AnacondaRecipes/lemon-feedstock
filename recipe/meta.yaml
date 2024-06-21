@@ -51,7 +51,7 @@ requirements:
     - patch       # [not win]
     - m2-patch    # [win]
   host:
-    - glpk           # [not win]
+    - glpk           # [not (win or s390x)]
     - coincbc        # [unix]
     - coin-or-utils  # [unix]
     - coin-or-cgl    # [unix]
@@ -60,7 +60,7 @@ requirements:
     - coin-or-cbc    # [unix]
     # - bzip2
   # run:
-  #   - glpk           # [not win]
+  #   - glpk           # [not (win or s390x)]
   #   - coincbc        # [unix]
   #   - coin-or-utils  # [unix]
   #   - coin-or-cgl    # [unix]
