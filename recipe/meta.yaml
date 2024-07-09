@@ -83,6 +83,7 @@ about:
     structures and algorithms provide generic interfaces.
   doc_url: https://lemon.cs.elte.hu/trac/lemon/wiki/Documentation
   dev_url: https://lemon.cs.elte.hu/hg/lemon
+
 extra:
   recipe-maintainers:
     - bluescarni
