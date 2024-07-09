@@ -8,7 +8,8 @@ package:
 source:
   url: https://github.com/k-dominik/lemon/archive/{{ version }}.tar.gz 
   sha256: e3d7a204a6fdbde8fe87dbc1aa3fd0ae58f908e9fbe8db8a6618db7cd44cdce6
-  # use official tarball
+  # unfortunately we cannot use the official tarball because it is not
+  # always 100% available. That would be:
   # url: https://lemon.cs.elte.hu/pub/sources/{{ name }}-{{ version }}.tar.gz 
   # sha256: 71b7c725f4c0b4a8ccb92eb87b208701586cf7a96156ebd821ca3ed855bad3c8
   patches:
@@ -38,8 +39,6 @@ source:
 
 build:
   number: 9
-  # run_exports:
-  #   - {{ pin_subpackage('lemon', max_pin='x.x.x') }}
 
 requirements:
   build:
@@ -47,9 +46,9 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - ninja
-    - make        # [not win]
-    - patch       # [not win]
-    - m2-patch    # [win]
+    - make           # [not win]
+    - patch          # [not win]
+    - m2-patch       # [win]
   host:
     - glpk           # [not (win or s390x)]
     - coincbc        # [unix]
@@ -58,15 +57,6 @@ requirements:
     - coin-or-osi    # [unix]
     - coin-or-clp    # [unix]
     - coin-or-cbc    # [unix]
-    # - bzip2
-  # run:
-  #   - glpk           # [not (win or s390x)]
-  #   - coincbc        # [unix]
-  #   - coin-or-utils  # [unix]
-  #   - coin-or-cgl    # [unix]
-  #   - coin-or-osi    # [unix]
-  #   - coin-or-clp    # [unix]
-  #   - coin-or-cbc    # [unix]
 
 test:
   commands:
@@ -76,7 +66,6 @@ test:
     - if not exist %LIBRARY_INC%\\lemon\\glpk.h exit 1     # [win]
     - if not exist %LIBRARY_LIB%\\lemon.lib exit 1         # [win]
     - if not exist %LIBRARY_BIN%\\lemon.dll exit 1         # [win]
-
 
 about:
   home: https://lemon.cs.elte.hu/trac/lemon
