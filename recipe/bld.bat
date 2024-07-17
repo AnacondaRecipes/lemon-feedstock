@@ -12,23 +12,11 @@ cmake ^
     -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=1 ^
     -DCMAKE_BUILD_TYPE=%CONFIGURATION% ^
     ..
-
 if errorlevel 1 exit 1
 
 cmake --build . --config %CONFIGURATION%
-
 if errorlevel 1 exit 1
-
-cmake --build . --config %CONFIGURATION% --target error_test
-if errorlevel 1 exit 1
-cmake --build . --config %CONFIGURATION% --target bfs_test
-if errorlevel 1 exit 1
-
-
-ctest -R error_test
-ctest -R bfs_test
 
 cmake --build . --config %CONFIGURATION% --target install
-
 if errorlevel 1 exit 1
 

@@ -2,6 +2,7 @@
 #!/bin/bash
 
 mkdir build && cd build
+
 cmake ${CMAKE_ARGS} \
     -DCMAKE_PREFIX_PATH=$PREFIX \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -9,12 +10,5 @@ cmake ${CMAKE_ARGS} \
     -DBUILD_SHARED_LIBS=1 \
     ..
 make
-
-# if [[ "${target_platform}" == "${build_platform}" ]]; then
-#   # Compile and run a few tests.
-#   make error_test bfs_test
-#   ./test/error_test
-#   ./test/bfs_test
-# fi
 
 make install
