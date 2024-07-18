@@ -14,9 +14,9 @@ cmake ^
     ..
 if errorlevel 1 exit 1
 
-cmake --build . --config %CONFIGURATION%
+cmake --build .
 if errorlevel 1 exit 1
 
-cmake --build . --config %CONFIGURATION% --target install
+cmake --build . --target install
 if errorlevel 1 exit 1
 

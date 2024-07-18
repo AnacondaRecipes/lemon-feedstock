@@ -3,12 +3,12 @@
 
 mkdir build && cd build
 
-cmake ${CMAKE_ARGS} \
+cmake -G Ninja ${CMAKE_ARGS} \
     -DCMAKE_PREFIX_PATH=$PREFIX \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DCMAKE_POSITION_INDEPENDENT_CODE=1 \
     -DBUILD_SHARED_LIBS=1 \
     ..
-make
+cmake --build .
 
-make install
+cmake --build . --target install
