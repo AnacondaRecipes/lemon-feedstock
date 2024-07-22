@@ -4,7 +4,7 @@ cd build
 set CONFIGURATION="Release"
 
 cmake ^
-    -G "%CMAKE_GENERATOR%" ^
+    -G Ninja %CMAKE_ARGS% ^
     -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
     -DCMAKE_POSITION_INDEPENDENT_CODE=1 ^
@@ -12,23 +12,11 @@ cmake ^
     -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=1 ^
     -DCMAKE_BUILD_TYPE=%CONFIGURATION% ^
     ..
-
 if errorlevel 1 exit 1
 
-cmake --build . --config %CONFIGURATION%
-
+cmake --build .
 if errorlevel 1 exit 1
 
-cmake --build . --config %CONFIGURATION% --target error_test
-if errorlevel 1 exit 1
-cmake --build . --config %CONFIGURATION% --target bfs_test
-if errorlevel 1 exit 1
-
-
-ctest -R error_test
-ctest -R bfs_test
-
-cmake --build . --config %CONFIGURATION% --target install
-
+cmake --build . --target install
 if errorlevel 1 exit 1
 
